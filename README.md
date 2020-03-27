@@ -61,5 +61,5 @@ python CNVD-2020-10487-Tomcat-Ajp-lfi.py target.com
 
 # 其他相关工具
 https://github.com/0nise/CVE-2020-1938  
-https://github.com/hypn0s/AJPy
+https://github.com/hypn0s/AJPy  
 https://github.com/00theway/Ghostcat-CNVD-2020-10487
