@@ -35,6 +35,8 @@ def separateName(threadCount):
 #多线程函数
 def multithreading(threadCount):
 	separateName(threadCount)#先分离
+	if threadCount == 1:
+		threadCount = 2
 	for i in range(0,threadCount-1):
 		t=threading.Thread(target=run_one_thread,args=(urlSepList[i],))
 		t.start()

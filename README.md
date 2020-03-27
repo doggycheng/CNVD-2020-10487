@@ -6,6 +6,15 @@ Apache Tomcat文件包含漏洞（CVE-2020-1938 / CNVD-2020-1048 ）批量检测
 此项目在[Kit4y的项目](https://github.com/Kit4y/CNVD-2020-10487-Tomcat-Ajp-lfi-Scanner)的基础上进行修改. 
 
 # 代码修改
+当ip.txt中只有1个域名或ip时, 会使得threadCount为1, 程序实际上没有运行, 增加判断线程数的代码
+<pre>
+...
+if threadCount == 1:
+    threadCount = 2
+for i in range(0,threadCount-1):
+...
+</pre>
+
 </pre>
 修改少量代码, 以兼容Python3. 修改前的代码
 <pre>
