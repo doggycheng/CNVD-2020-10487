@@ -12,7 +12,7 @@ import sys
 http_URL = []
 
 #网站url
-http_website  = open("8009.txt", "r").readlines()
+http_website  = []
 #每个线程分配的url
 urlSepList=[]
 #分离文件名 给每个线程分一个

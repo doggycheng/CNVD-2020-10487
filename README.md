@@ -3,16 +3,9 @@
 
 Apache Tomcat文件包含漏洞（CVE-2020-1938 / CNVD-2020-1048 ）批量检测工具. 
 
-此项目在[Kit4y的项目](https://github.com/Kit4y/CNVD-2020-10487-Tomcat-Ajp-lfi-Scanne)的基础上进行修改, 直接使用的时候发现项目中的存在一些小问题, 全局变量http_website会导致线程数为0. 
+此项目在[Kit4y的项目](https://github.com/Kit4y/CNVD-2020-10487-Tomcat-Ajp-lfi-Scanner)的基础上进行修改. 
 
 # 代码修改
-<pre>
-...
-http_website  = []
-...
-if len(http_website) < thread_num:
-    thread_num=len(http_website)
-...
 </pre>
 修改少量代码, 以兼容Python3. 修改前的代码
 <pre>
@@ -60,3 +53,4 @@ python CNVD-2020-10487-Tomcat-Ajp-lfi.py target.com
 # 其他相关工具
 https://github.com/0nise/CVE-2020-1938  
 https://github.com/hypn0s/AJPy
+https://github.com/00theway/Ghostcat-CNVD-2020-10487
